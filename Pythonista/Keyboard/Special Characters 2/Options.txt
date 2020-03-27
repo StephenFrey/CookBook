@@ -1,0 +1,11 @@
+Punctuation
+123
+abc
+Arrows
+Faces
+Emoji
+Math
+Drawing
+Script
+Currency
+Misc
