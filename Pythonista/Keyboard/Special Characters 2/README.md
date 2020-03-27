@@ -45,6 +45,7 @@ new Version instead without the need to Setup inside Pythonista settings.*
 ---
 —STEPHEN FREY
 
+*Included are two files for offline Resource for Unicode. Files are to large to open inside Pythonists and Editorial.*
 
 ---
 
