@@ -1,10 +1,15 @@
 # CookBook
-> *Odds and Ends, Node that helped myself along the way*
+> *Odds and Ends that helped myself along the way*
 
 ***Repository wil be updated as along side  Flow. requests welcome!***
  
 ---
 
+
+### Pythonista Specific
+* Special Characters 2.py
+   - Increased functionality of built-in example `Special Characters.py`
+   - see [README](https://github.com/StephenFrey/CookBook/tree/master/Pythonista/Keyboard/Special%20Characters%202) for more info.
 ### Game Development
 * gameGen.py
    - logarithm Curve to Generate Experience requirments.
