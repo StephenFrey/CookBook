@@ -23,6 +23,7 @@
   
  * TickManager.py
     - Simple clasd to provide updating to any class
+    [⇢](https://github.com/StephenFrey/CookBook/blob/master/Pythonista/GameDevelopment/TickManager.py)
 
  
   ---
