@@ -19,6 +19,7 @@
 	LabelNode from Pythonista's scene module to display Tick info on screen.
 	
 '''
+from scene import *
 class Tick:
 	val=0.0 
 	last_tick=0.0
@@ -56,3 +57,11 @@ class Tick:
 		if cls.objects_to_update:
 			for child in cls.objects_to_update:
 				child.update()
+
+class GameLoop(Scene):
+	def setup(self):
+		pass
+	
+	def update(self):
+		Tick._update(self)
+		
