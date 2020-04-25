@@ -64,7 +64,6 @@ class Config:
 	# Score
 	def points():return 5
 	
-	
 	#Timers
 	def ShieldTimer():return 30
 	def ShieldSpawnTimer():return 30
@@ -85,8 +84,6 @@ class Config:
 		f=cls.font() if f == None else f
 		s=cls.fontSize() if s == None else s
 		return (f, s)
-		
-		
 	
 	#Colors
 	def Black(): return '#000'
@@ -121,7 +118,6 @@ class Config:
 ╚═══════════════════════════════════════════════════════════════
 '''
 class EventManager:
-	
 	dependents=[]
 	main=None
 	spawnQue=[]
@@ -129,7 +125,6 @@ class EventManager:
 	gameObjects=None
 	player=None
 	powerUps=[]
-	
 	needsTouch=[]
 	allTouches=[]
 	canClose=False
@@ -140,12 +135,10 @@ class EventManager:
 	def Setup(cls, other):
 		if(cls.main is None):
 			cls.main = other
-			
-			
+	
 	@classmethod
 	def Include(cls, other):
 		cls.dependents.append(other)
-	
 	
 	@classmethod
 	def PowerUpSpawner(cls, dt, game):
@@ -223,8 +216,6 @@ class Spawn:
 ║        :Screen:
 ║	Handle or screen positioning and Sizing
 ╚═══════════════════════════════════════════════════════════════
-
-
 '''
 class Screen:
 	def Width():
@@ -232,7 +223,6 @@ class Screen:
 		
 	def Hieght():
 		return get_screen_size()[1]
-	
 	
 	def Full():
 		return get_screen_size()
@@ -275,7 +265,6 @@ class Animation:
 	def __init__(self, node):
 		self.node=node
 		
-		
 	def ScoreTravel(self, x, meth,  t=TIMING_LINEAR):
 		self.node.run_action(
 		a.group(
@@ -315,7 +304,6 @@ class Animation:
 		a.group(
 		a.sequence(fade),a.sequence(scale), a.sequence(rotate)),repeat))
 		
-		
 	def Shine(self, speed, repeat=-1, t=TIMING_LINEAR):
 		self.node.run_action(
 		a.repeat(
@@ -325,9 +313,7 @@ class Animation:
 		a.rotate_by(7, speed, t)),
 		a.sequence(
 		a.scale_to( 0.5, speed, t),
-		a.scale_to(0.1, speed, t))
-		
-		),repeat))
+		a.scale_to(0.1, speed, t))),repeat))
 		
 	def PowerUpFloat(self, speed, repeat=-1, t=TIMING_LINEAR):
 		self.node.run_action(
@@ -339,9 +325,7 @@ class Animation:
 		
 		a.sequence(
 		a.rotate_to(-0.10, speed, t),
-		a.rotate_to(0.10, speed, t))
-		
-		),repeat))
+		a.rotate_to(0.10, speed, t))),repeat))
 		
 	def Vibrate(self, repeat, speed, t=TIMING_LINEAR):
 		self.node.run_action(
@@ -356,8 +340,8 @@ class Animation:
 		a.scale_y_by( 0.1, speed, t),
 		a.scale_y_by(-0.1, speed, t),
 		a.scale_y_by( 0.1, speed, t),
-		a.scale_y_by(-0.1, speed, t))
-		),repeat))
+		a.scale_y_by(-0.1, speed, t))),repeat))
+		
 	def Drive(self, repeat, speed, t=TIMING_LINEAR):
 		self.node.run_action(a.move_to(
 		-Screen.Width()+128, self.node.position[1], speed,t))
@@ -375,23 +359,20 @@ class Animation:
 		a.scale_y_by( 0.1, speed, t),
 		a.scale_y_by(-0.1, speed, t),
 		a.scale_y_by( 0.1, speed, t),
-		a.scale_y_by(-0.1, speed, t))
-		),repeat))
+		a.scale_y_by(-0.1, speed, t))),repeat))
 		
 	def Spin(self, repeat, speed, t=TIMING_LINEAR):
 		self.node.run_action(
 		a.repeat(
 		a.group(
 		a.sequence(
-		a.rotate_by(1, speed, t))
-		),repeat))
+		a.rotate_by(1, speed, t))),repeat))
 		
 	def Pulse(self, mod=0, repeat=-1, speed=0.5, t=TIMING_LINEAR):
 		def color_to(node, progress):
 			node.color='#aef4ff' if random.random() < 0.5 else '#00deff'
 		fade=[]
 		scale=[]
-		
 		for x in range(100):
 			val=random.random()
 			if val < 0.5:
@@ -419,7 +400,6 @@ class Animation:
 			move.append(a.move_by(0, -mv, speed*0.5, t))
 			rotate.append(a.rotate_by(-random.randrange(1, 10)*random.random(), speed*5, TIMING_LINEAR))
 			rotate.append(a.rotate_by(random.randrange(1, 10)*random.random(), speed*5, TIMING_LINEAR))
-			
 		for x in range(100):
 			ry=random.random()
 			rx=random.random()
@@ -431,7 +411,6 @@ class Animation:
 			scale.append(a.scale_y_to(1, speed*ry*0.1, TIMING_ELASTIC_IN_OUT))
 			scale.append(a.scale_x_to(rx, speed*rx*0.1, t))
 			scale.append(a.scale_x_to(1, speed*ry*0.1, TIMING_ELASTIC_IN_OUT))
-			
 		self.node.run_action(
 		a.repeat(
 		a.group(
@@ -444,16 +423,14 @@ class Animation:
 		a.repeat(
 		a.group(
 		a.sequence(
-		a.move_by(0, -32, duration, t))
-		),repeat), 'playerMove')
-		
+		a.move_by(0, -32, duration, t))),repeat), 'playerMove')
+	
 	def Ascend(self, repeat=0, duration=10, t=TIMING_LINEAR):
 		self.node.run_action(
 		a.repeat(
 		a.group(
 		a.sequence(
-		a.move_by(0, 32, duration, t))
-		),repeat), 'playerMove')
+		a.move_by(0, 32, duration, t))),repeat), 'playerMove')
 		
 	def ActivatePowerup(self, t=TIMING_LINEAR):
 		self.node.run_action(
@@ -531,7 +508,7 @@ class Sprite(SpriteNode):
 		
 '''
 ╔═══════════════════════════════════════════════════════════════
-║        	:Block⇒9Sprit⇒SpriteNode⇒Node:
+║        	:Block⇒Sprit⇒SpriteNode⇒Node:
 ║	
 ║	Used as building locks for Brushes but can also be use as
 ║	standalong GameObjects. i.e. Stone, Dirt, Grass and sky are 
@@ -546,13 +523,12 @@ class Block(Sprite):
 		super().__init__(texture=texture, *args, **kwargs)
 		EventManager.Include(self)
 		
-		
 	def Tick(self, game, dt, runTime):
 		if(self.tag != 'effect'):
 			pass
 '''
 ╔═══════════════════════════════════════════════════════════════
-║       				 :Brush:
+║       		 :Brush:
 ║	Consists of multiple Block Objects. Generally Brush objects
 ║	are what you see on the screen other than UI elements. the 
 ║	two brushes in this game is the Obsticle and Shield PowerUp.
@@ -617,7 +593,6 @@ class PowerUp(SpriteNode):
 		self.position=Point(Screen.Width()/2, Screen.Hieght()/2)
 		self.animate.ActivatePowerup()
 		
-		
 '''
 ╔═══════════════════════════════════════════════════════════════
 ║        :GameObjects:
@@ -646,7 +621,6 @@ class GameObjects:
 		'spc:MeteorGrayMed2',  'spc:MeteorGraySmall1',  'spc:MeteorGraySmall2', 
 		'spc:MeteorGrayTiny1', 'spc:MeteorGrayTiny2']
 							
-		
 	def Shield(self, z):
 		b=PowerUp(texture=Texture('spc:ShieldSilver'),tag='powerup shield')
 		b.position=Point(0, 0)
@@ -734,7 +708,6 @@ class GameObjects:
 		b.rotation=random.randrange(1, 9)
 		b.anchor_point=(0.5, 0.5)
 		b.animate.Hover(-1, 2)
-		
 		return b
 		
 	def meteorGap(self, y, x=0, z=1, isGap=True):
@@ -750,7 +723,6 @@ class GameObjects:
 		b.rotation=random.randrange(1, 5)
 		b.anchor_point=(0.5, 0.5)
 		b.animate.Hover(-1, 2)
-		
 		return b
 		
 	def Sky(self, x, y):
@@ -837,7 +809,6 @@ class Brushes:
 		spawnTimer=random.randrange(16,30),
 		position=Point(100,400),
 		z_position=20)
-		
 		n.animate.PowerUpFloat(2, t=random.randrange(0, 16))
 		n.add_child(self.gameObjects.Shield(9))
 		n.add_child(self.gameObjects.ShineyPoint(2))
@@ -850,7 +821,6 @@ class Brushes:
 		gapSize=random.randrange(self.gapMin, self.gapMax)
 		slots=round((self.crateMax-self.crateMin)/
 		self.gameObjects.CrateSize)-gapSize
-		
 		gap_root=random.randrange(1, slots+1)
 		gap=[]
 		for slot in range(gap_root, gap_root + gapSize):
@@ -909,11 +879,9 @@ class Trigger(SpriteNode):
 		self.offset=GameObjects(self).Floor
 		
 	def Tick(self, game, dt, runTime):
-	
 		x=self.brush.position[0]+self.target.position[0]
 		y=self.target.position[1]+self.offset
 		self.position=Point(x, y)
-		
 		if(x < -128):
 			self.run_action(a.remove())
 '''
@@ -1210,7 +1178,6 @@ class Player(SpriteNode):
 		else:  
 			self.hitPoints=0
 			Animation(self.scene.infoBox.hpBar).ResizeBar(0)
-			
 			self.isDead=True
 			self.ChangePose(4)
 			
@@ -1250,7 +1217,6 @@ class Player(SpriteNode):
 			#display timer
 			if(self.PowerUpTimer < 0.0):
 				self.EndSheild()
-				
 				
 	def ChangePose(self, pose):
 		if(pose == 1):
@@ -1439,7 +1405,6 @@ class NodeTimer(Node):
 		a.call(self.scene.EndTimer),
 		a.remove()))
 		
-		
 		self.up=Sprite(texture=Texture('plf:AlienPink_swim1'))
 		self.up.alpha=1.0
 		self.up.rotation=0
@@ -1453,10 +1418,6 @@ class NodeTimer(Node):
 		self.idle.position=Point(0.0, 0.0)
 		
 		self.down=Sprite(texture=Texture('plf:AlienPink_hit'))
-
-
-
-						
 		
 '''
 ╔═══════════════════════════════════════════════════════════════
@@ -1494,7 +1455,6 @@ class Main (Scene):
 		self.brushes.StandardObsticle()()
 		self.infoBox=InfoBox(self.player)
 		self.add_child(self.infoBox)
-		
 		
 	def Generate_Sky(self):
 		for y in range(self.GetSkyHieght()):
@@ -1548,13 +1508,9 @@ class Main (Scene):
 			self.spawnedObsticles.append(node)
 			self.curSpawnCoolDown=random.randrange(
 					self.minSpawnCoolDown, self.maxSpawnCoolDown)
-			
 		super().add_child(node)
-		
 	def did_change_size(self):
 		pass
-		
-		
 	'''
 ╔═══════════════════════════════════════════════════════════════
 ║	Methods StartTimer and EndTimer Along with Property noHitTimer
@@ -1580,8 +1536,6 @@ class Main (Scene):
 		
 		self.noHitTimer.remove_from_parent()
 		self.noHitTimer=None
-
-	
 	
 	def check_item_collisions(self):
 		if self.items:
@@ -1619,7 +1573,6 @@ class Main (Scene):
 						x.run_action(a.remove())
 						self.items.remove(x)
 						
-						
 	def ShieldPickUp(self):
 		EventManager.powerUpTimer=Config.ShieldSpawnTimer()
 		self.add_child(GFX(
@@ -1648,21 +1601,16 @@ class Main (Scene):
 	def update(self):
 		self.check_item_collisions()
 		EventManager.Pass(self.dt, self)
-		
-		
 		if(self.player.position[1] <= self.gameObjects.Floor):
 			self.player.remove_action('playerMove')
 			self.player.position = Point(Screen.Width()/2, self.gameObjects.Floor+5)
 			self.player.ChangePose(3)
-			
-			
 		if(self.curSpawnCoolDown > 0):
 			self.curSpawnCoolDown -= self.dt
 			if(self.curSpawnCoolDown < 0):
 				self.curSpawnCoolDown=0.0
 				if(len(self.spawnedObsticles) < self.maxObsticles):
 					self.brushes.StandardObsticle()()
-					
 					
 	def touch_began(self, touch):
 		if(self.gameOver == False):
@@ -1676,7 +1624,6 @@ class Main (Scene):
 	def touch_ended(self, touch):
 		if(self.gameOver == False):
 			EventManager().touch_ended( touch)
-			
 			
 if __name__ == '__main__':
 	run(Main(), show_fps=True)
