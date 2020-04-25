@@ -14,12 +14,13 @@
 ---
 
 ### Game Development
-* gameGen.py
-   - logarithm Curve to Generate Experience requirments.
-   - Adjust Equation every 10 loops for dynamic curve change to alter User Content Flow
-   - Generated `Attribute Points` every even loop 
-     - *Also adapting with current Loop to generate a "side" curve to synchronize Flow.*
-   - Generates a "side" curve for character main experience with larger value outputs for balance of Flow
+* Space Escape [⟿](https://github.com/StephenFrey/CookBook/blob/master/Pythonista/GameDevelopment/SPACE%20ESCAPE/space_escape.py)
+  - Game writing to help others get started using Pythonista's `scene` module.
+  - Code is writen use diferent styles of implementing aspects of the game to show flexability of game deign. 
+  - All images are Pythonista Built-in so the user can focus on the code instead of getting anything imported.
+  - the game itself has a few bugs and are ue to using diferent styles in one script the way i have. they are easy to fix but doing so effects the purpose so i left them.
+  - i may add to this in the future but nothing set in stone. i did want o have menus, character creation, sound and multiple levels but was pressed on time from self set goals
+
   
  * TickManager.py
     - Simple clasd to provide updating to any class
