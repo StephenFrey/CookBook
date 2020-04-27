@@ -19,13 +19,16 @@
 	LabelNode from Pythonista's scene module to display Tick info on screen.
 	
 '''
+
+import scene
+
 class Tick:
 	val=0.0 
 	last_tick=0.0
 	intervals=1.0
 	objects_to_update=[]
-	label=LabelNode(text='Tick: ', color=(0.0, 0.0, 0.0, 1.0), 
-					size=Size(50, 35), anchor_point=(0.0, 0.0))
+	label=scene.LabelNode(text='Tick: ', color=(0.0, 0.0, 0.0, 1.0), 
+					size=scene.Size(50, 35), anchor_point=(0.0, 0.0))
 	
 	@classmethod
 	def dt(cls): 
