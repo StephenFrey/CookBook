@@ -8,9 +8,9 @@ Note: This script is designed for the Pythonista Keyboard. You can enable it in 
 Extended:
 	Everything is still the Same Concept. additions and changes are as follows...
 		⚀ Multi-tier menu for Unicode Grouping. 
-		⚁ Resizing buttons to make best use of screen width while still providing 
+		⚁ Resizing buttons to make best use of screen width while still providing
 		  enoigh area for Text.
-		⚂ For Performance different catagories of Unicode are placed in separate
+		⚂ For Performance different categories of Unicode are placed in separate
 		  .txt files.
 		⚃ Larger selection of Characters and Symbols.
 		⚄ ⏎ button to send user back to menu without having to reload Script.
@@ -26,14 +26,14 @@ Adding To Collection:
 	Emoji and Symbold ↷
 		⚀ inside respective file `💪 ⇒ Emoji.txt` and `♳✯✟ ⇒ Misc.txt` place each
 		  grouping together in one line.
-		⚁ And thats all! the first item in the line will be the display button Image.
+		⚁ And that's all! the first item in the line will be the display button Image.
 	
 	Premade Smilies ↷
-		⚀ Inside `Faces.txt` place each face on a single line. 
+		⚀ Inside `Faces.txt` place each face on a single line.
 		⚁ Once file saves Custom Faces will be Available!
 		
 	For seamless Use, change Script file name to `Special Characters.py` and
-	place inside `Examples/Keyboard/` replacing original script. This way will use 
+	place inside `Examples/Keyboard/` replacing original script. This way will use
 	new Version instead without the need to Setup inside Pythonista settings.
 	
 	THANKYOU!
