@@ -14,7 +14,7 @@
 ---
 
 ### Game Development
-* Space Escape [⟿](https://github.com/StephenFrey/CookBook/blob/master/Pythonista/GameDevelopment/SPACE%20ESCAPE/space_escape.py)
+* Space Escape [⟿](https://github.com/StephenFrey/CookBook/blob/master/Pythonista/GameDevelopment/SPACE%20ESCAPE/space_ecape.py)
   - Game writing to help others get started using Pythonista's `scene` module.
   - Code is writen use diferent styles of implementing aspects of the game to show flexability of game deign. 
   - All images are Pythonista Built-in so the user can focus on the code instead of getting anything imported.
