@@ -134,13 +134,13 @@ class Settings:
 ╔═══════════════════════════════════════════════════════════════
 ║       :EventManager:
 ║	Used as a bridge between objects that normally would
-║	never see eachother. Alo alows access between objects sooner
+║	never see each other. Also allows access between objects sooner
 ║	than normal
 ║
 ║	by using →  def Include(cls, other): 
 ║	you can then override Tick method as well as the Touch methods
 ║	from SceneNode. EventManager will then pass data long as it
-║	recieves it. Technically most of your game can be controlled
+║	receives it. Technically most of your game can be controlled
 ║	from here as long as you call Include in all your class 
 ║	__init__ constructors.
 ║	
