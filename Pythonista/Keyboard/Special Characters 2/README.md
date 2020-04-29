@@ -6,7 +6,7 @@
 - Multi-tier menu for Unicode Grouping. 
 - Resizing buttons to make best use of screen width while still providing 
 	 enoigh area for Text.
-- For Performance different catagories of Unicode are placed in separate
+- For Performance different categories of Unicode are placed in separate
 		  `.txt` files.
 - Larger selection of Characters and Symbols.
 - `⏎` button to send user back to menu without having to reload Script.
@@ -23,7 +23,7 @@
 ***Emoji and Symbold*** ↴
 - inside respective file `💪 ⟾ Emoji.txt` and `♳✯✟ ⟾ Misc.txt` place each
 	grouping together in one line.
-- And thats all! the first item in the line will be the display button Image.
+- And that's all! the first item in the line will be the display button Image.
 	
 ***Premade Smilies*** ↴
 - Inside `Faces.txt` place each face on a single line. 
@@ -49,6 +49,6 @@ new Version instead without the need to Setup inside Pythonista settings.*
 
 ---
 
-**Attribution** goes to [*OMZ*](https://forum.omz-software.com/), devloper of [Pythonista](https://apps.apple.com/us/app/pythonista-3/id1085978097) 
+**Attribution** goes to [*OMZ*](https://forum.omz-software.com/), developer of [Pythonista](https://apps.apple.com/us/app/pythonista-3/id1085978097) 
 for providing IDE as well as the tools and original script for this Module!
 

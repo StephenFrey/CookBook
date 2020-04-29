@@ -5,7 +5,7 @@
 					    Properties
 				  val ⤇ 	Time between frames 'DeltaTime'
 			last_tick ⤇		val for last Tick
-	objects_to_update ⤇		ist of updated class'.
+	objects_to_update ⤇		list of updated class'.
 	
 	Managed Objects must have an Update() method (case sensitive)
 	

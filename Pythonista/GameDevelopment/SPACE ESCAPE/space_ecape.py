@@ -1,40 +1,40 @@
 '''
 ╔═══════════════════════════════════════════════════════════════
 ║    					:SPACE ESCAPE:
-║	This minimal game was writen with the intention to help others with 
+║	This minimal game was written with the intention to help others with
 ║	game development using the scene module in pythonista. The coding style
 ║	is None.. The way code was deigned was an attempt to provide examples of
 ║	the deferent ways of implementing aspects of a game environment. 
 ║	
-║	None of this is meant to diplay the most "correct" or proformnce 
-║	effecient way of writing a game.
+║	None of this is meant to display the most "correct" or proformnce
+║	efficient way of writing a game.
 ║	
-║		SPACE ESCAPE is a very simple "Flappy Bird" style game (pres and hold 
-║	to Asend. you are an alientrying to escape an enemy mining base while 
+║		SPACE ESCAPE is a very simple "Flappy Bird" style game (press and hold
+║	to Asend. you are an alientrying to escape an enemy mining base while
 ║	harvesters deliver Ore backto the Refinery. grab as many Shield PowerUps
-║	as you can. this grants you a 30 sec shield with 100 
-║	durability.. you get up to 2 choices topass the harvesters. 
+║	as you can. this grants you a 30 sec shield with 100
+║	durability.. you get up to 2 choices topass the harvesters.
 ║	
 ║		- Soft Ore (Darker)
 ║		- Short Stacks. (Over the top)
 ║		
 ║		The Rich ore will turn read and deal damage if you pass through it,
-║	the Soft ore will Turn Green. as a bonus you grab a hand full of 
-║	soft ore as you pass and store it. 
+║	the Soft ore will Turn Green. as a bonus you grab a hand full of
+║	soft ore as you pass and store it.
 ║	the damage is too your Equipment and if you run out your strap will
-║	break and and jet flying off to explode as you fall so be carfull.. 
-║	the jetpaxk is nuklear powered and wont be a small kaboom..
+║	break and and jet flying off to explode as you fall so be careful..
+║	the jetpaxk is nuklear powered and won't be a small kaboom..
 ║	
-║	..the nerd stuff aside.. 
+║	..the nerd stuff aside..
 ║
-║	Provided are breif comments on the classes and a couple Methods. All 
-║	questions or comment requests are welcome. I didnt comment everything 
+║	Provided are brief comments on the classes and a couple Methods. All
+║	questions or comment requests are welcome. I didn't comment everything
 ║	so the code is easy to read and i attempted at mainly using a iscriptive
-║	naminh scheme. 
+║	naminh scheme.
 ║	
 ║	Never Ending level.
 ║	
-║	Hopfully everyone enjoys and  and i hope this helps someone out there.
+║	Hopefully everyone enjoys and  and i hope this helps someone out there.
 ╚═══════════════════════════════════════════════════════════════
 '''
 
@@ -48,12 +48,12 @@ a = Action
 '''
 ╔═══════════════════════════════════════════════════════════════
 ║        :Config:
-║	Easy access Variables. I use it for debuging and I either 
+║	Easy access Variables. I use it for debugging and I either
 ║	keep it as first class of script or i give it its own module
 ║	in this case I'm using it just like a settings object that
 ║	can be used in  setting menu.
 ║	
-║	Lway have my Color Pallet and textual settings like Font 
+║	Lway have my Color Pallet and textual settings like Font
 ║	Family
 ╚═══════════════════════════════════════════════════════════════
 '''
@@ -103,18 +103,18 @@ class Config:
 '''
 ╔═══════════════════════════════════════════════════════════════
 ║       :EventManager:
-║	Used as a bridge between objects that normaly would
-║	never see eachother. Alo alows access between objects sooner
-║	than normal
+║	Used as a bridge between objects that normally would
+║	never see each other. Also allows access between objects
+║	sooner than normal
 ║
 ║	by using →  def Include(cls, other): 
-║	you can then override Tick method aswell as the Touch methods
+║	you can then override Tick method as well as the Touch methods
 ║	from SceneNode. EventManager will then pass data long as it
-║	recieves it. Technically most of your game can be controlled
-║	from here as long as you call Include in all your class 
+║	receives it. Technically most of your game can be controlled
+║	from here as long as you call Include in all your class
 ║	__init__ constructors.
 ║	
-║	Handles Object Spawns aswell
+║	Handles Object Spawns as well
 ╚═══════════════════════════════════════════════════════════════
 '''
 class EventManager:
@@ -221,7 +221,7 @@ class Screen:
 	def Width():
 		return get_screen_size()[0]
 		
-	def Hieght():
+	def Height():
 		return get_screen_size()[1]
 	
 	def Full():
@@ -230,23 +230,23 @@ class Screen:
 	@classmethod
 	def Center(cls, offsetX=0, offsetY=0):
 		x=cls.Width()/2-offsetX
-		y=cls.Hieght()/2-offsetY
+		y=cls.Height()/2-offsetY
 		return Point(x, y)
 		
 	@classmethod
 	def TopCenter(cls, offsetX=0, offsetY=128):
 		x=cls.Width()/2-offsetX
-		y=cls.Hieght()-offsetY
+		y=cls.Height()-offsetY
 		return Point(x, y)
 	
 	def BottomCenter(cls, offsetX=0, offsetY=128):
 		x=cls.Width()/2-offsetX
-		y=cls.Hieght()+offsetY
+		y=cls.Height()+offsetY
 		return Point(x, y)
 	
 	@classmethod
 	def Orientation(cls):
-		return PORTRAIT if cls.Width() < cls.Hieght() else LANDSCAPE
+		return PORTRAIT if cls.Width() < cls.Height() else LANDSCAPE
 		
 '''
 ╔═══════════════════════════════════════════════════════════════
@@ -436,7 +436,7 @@ class Animation:
 		self.node.run_action(
 			a.group(
 				a.sequence(
-					a.move_to(Screen.Width()/2, Screen.Hieght()-128, 1, t),
+					a.move_to(Screen.Width()/2, Screen.Height()-128, 1, t),
 					a.wait(3),
 					a.move_to(30.00, 340.00, 1, t)),
 				a.sequence(
@@ -492,7 +492,7 @@ class Animation:
 ╔═══════════════════════════════════════════════════════════════
 ║        :Sprite⇒SpriteNode⇒Node:
 ║	
-║	Simple Sprite Class to add some propertie to all SpriteNode
+║	Simple Sprite Class to add some property to all SpriteNode
 ║	Objects when Subclassed.
 ╚═══════════════════════════════════════════════════════════════
 '''
@@ -590,7 +590,7 @@ class PowerUp(SpriteNode):
 		
 	def Activate(self):
 		self.remove_all_actions()
-		self.position=Point(Screen.Width()/2, Screen.Hieght()/2)
+		self.position=Point(Screen.Width()/2, Screen.Height()/2)
 		self.animate.ActivatePowerup()
 		
 '''
@@ -599,7 +599,7 @@ class PowerUp(SpriteNode):
 ║	Container/factory class for the Sprites and Blocks used in 
 ║	Brushes.
 ║
-║	*Annotations apon request
+║	*Annotations upon request
 ╚═══════════════════════════════════════════════════════════════
 '''
 class GameObjects:
@@ -730,7 +730,7 @@ class GameObjects:
 		tag='effect',
 		parent=self.pNode)
 		b.size=Size(self.SkyBlockSize, self.SkyBlockSize)
-		b.position=(self.SkyBlockSize*x, Screen.Hieght()-self.SkyBlockSize*y)
+		b.position=(self.SkyBlockSize*x, Screen.Height()-self.SkyBlockSize*y)
 		b.color=self.SkyColor
 		b.alpha=1.0
 		return b
@@ -862,7 +862,7 @@ class Brushes:
 ║	check if player is in a gap, hitting a wall or collecting a 
 ║	powerups
 ║	Setting Config.ViewTriggers to True will show the hitBox area
-║	for Trigger and has different Colors acording to the Block 
+║	for Trigger and has different Colors according to the Block 
 ║	Object it is attached to.
 ╚═══════════════════════════════════════════════════════════════
 '''
@@ -1099,7 +1099,7 @@ class Player(SpriteNode):
 		
 		self.add_child(self.jetpack)
 		self.ChangePose(2)
-		self.position=Point(Screen.Width()/2 ,Screen.Hieght()/2)
+		self.position=Point(Screen.Width()/2 ,Screen.Height()/2)
 		
 		self.PowerUpTimer=0.0
 		
@@ -1145,7 +1145,7 @@ class Player(SpriteNode):
 	'''
 ╔═══════════════════════════════════════════════════════════════
 ║	RemoveSP/AddSP and RemoveHP/AddHP
-║	Controls for increasing nd decreaing HitPoints (Helth)
+║	Controls for increasing and decreaing HitPoints (Helth)
 ║	and ShieldPoints.
 ║	Talks to InfoBox through Main (SceneNode) to adjust gui
 ║	values.
@@ -1192,14 +1192,14 @@ class Player(SpriteNode):
 	
 	'''
 	╔═══════════════════════════════════════════════════════════════
-	║	RunQue is used to insure we dont miss any collissions.
+	║	RunQue is used to insure we don't miss any collissions.
 	║	out actual shieldPoints will be correct but its very easy
-	║	for the Bar to get interupted and having a chance to show
+	║	for the Bar to get interrupted and having a chance to show
 	║	incorrect readings.
 	║	
-	║	Alternativly you could use EventManager and Tick methon to chect
+	║	Alternatively you could use EventManager and Tick methon to chect
 	║	if they are the correct values. generallybthis is what developers
-	║	do but i wanted to show you alternate Approches.
+	║	do but i wanted to show you alternate Approaches.
 	╚═══════════════════════════════════════════════════════════════
 	'''
 	@ui.in_background
@@ -1313,7 +1313,7 @@ class Player(SpriteNode):
 		None,
 		color='#fdffdc',
 		size=get_screen_size(),
-		position=Point(Screen.Width()/2, Screen.Hieght()/2),
+		position=Point(Screen.Width()/2, Screen.Height()/2),
 		parent=self.scene,
 		z_position=999,
 		alpha=1.0)
@@ -1350,7 +1350,7 @@ class GFX(SpriteNode):
 '''
 ╔═══════════════════════════════════════════════════════════════
 ║        :GameOver:
-║	Displays the clasic Game Over Text and provides means of 
+║	Displays the classic Game Over Text and provides means of 
 ║	closing the game other than the "x" button.
 ╚═══════════════════════════════════════════════════════════════
 '''
@@ -1428,7 +1428,7 @@ class NodeTimer(Node):
 ║	outside of this class and do as little as i can directly 
 ║	inside.
 ║	
-║	I dout there is any kind of gain in doing this. but it is 
+║	I doubt there is any kind of gain in doing this. but it is 
 ║	the way im comfortable in writing. probably comes from my 
 ║	experience with C#.
 ╚═══════════════════════════════════════════════════════════════
@@ -1457,7 +1457,7 @@ class Main (Scene):
 		self.add_child(self.infoBox)
 		
 	def Generate_Sky(self):
-		for y in range(self.GetSkyHieght()):
+		for y in range(self.GetSkyHeight()):
 			for x in range(int(Screen.Width()/self.gameObjects.SkyBlockSize)):
 				self.add_child(self.gameObjects.Sky(x, y))
 				
@@ -1471,8 +1471,8 @@ class Main (Scene):
 				else:
 					self.add_child(self.gameObjects.Stone(x, y))
 					
-	def GetSkyHieght(self):
-		val1 = (Screen.Hieght() - (self.gameObjects.GoundBlockSize * self.gameObjects.GroundHeight)) / self.gameObjects.SkyBlockSize
+	def GetSkyHeight(self):
+		val1 = (Screen.Height() - (self.gameObjects.GoundBlockSize * self.gameObjects.GroundHeight)) / self.gameObjects.SkyBlockSize
 		return int(val1 + 1)
 		
 	def Game_Over(self):
@@ -1579,7 +1579,7 @@ class Main (Scene):
 			Texture('spc:ShieldSilver'),
 			color='#97d6ff',
 		
-		position=Point(Screen.Width()/2, Screen.Hieght()-320),
+		position=Point(Screen.Width()/2, Screen.Height()-320),
 		z_position=101))
 		
 	def GrantScore(self):
