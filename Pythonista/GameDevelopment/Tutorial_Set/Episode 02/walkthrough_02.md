@@ -1,4 +1,4 @@
-Space Escape Episode 01
+Space Escape Episode 02
 ===
 
 ***to begin lets create a python script called `lib.py`***
